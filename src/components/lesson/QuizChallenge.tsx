@@ -17,7 +17,7 @@ export default function QuizChallenge({
   const [isAnswered, setIsAnswered] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  if (step.type !== 'quiz' || !step.options) return null;
+  if (step.type !== 'quiz' || !step.quizOptions) return null;
 
   const handleSelect = (idx: number) => {
     if (isAnswered) return;
@@ -25,7 +25,7 @@ export default function QuizChallenge({
     setIsAnswered(true);
   };
 
-  const isCorrect = selectedOption === step.correctAnswer;
+  const isCorrect = selectedOption !== null && !!step.quizOptions?.[selectedOption]?.isCorrect;
   const prefixes = ['A', 'B', 'C', 'D'];
 
   return (
@@ -40,9 +40,9 @@ export default function QuizChallenge({
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-8">
-        {step.options.map((opt, idx) => {
+        {step.quizOptions.map((opt, idx) => {
           const isSelected = selectedOption === idx;
-          const isCorrectOpt = idx === step.correctAnswer;
+          const isCorrectOpt = opt.isCorrect;
           
           let stateClass = "border-white/10 hover:border-indigo-500/50 hover:bg-white/5";
           if (isAnswered) {
@@ -80,7 +80,7 @@ export default function QuizChallenge({
               `}>
                 {prefixes[idx]}
               </div>
-              <span className="text-lg font-medium">{opt}</span>
+              <span className="text-lg font-medium">{opt.text}</span>
             </motion.div>
           );
         })}
