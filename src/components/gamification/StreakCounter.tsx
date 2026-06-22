@@ -24,7 +24,7 @@ function AnimatedNumber({ value }: { value: number }) {
     spring.set(value);
   }, [value, spring]);
 
-  return <motion.span>{display}</motion.span>;
+  return <motion.span>{display as unknown as React.ReactNode}</motion.span>;
 }
 
 export default function StreakCounter({ compact = false }: StreakCounterProps) {

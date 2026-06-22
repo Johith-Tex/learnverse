@@ -55,7 +55,7 @@ export default function XPBar({ compact = false }: XPBarProps) {
         </span>
 
         {/* Inline keyframes */}
-        <style jsx>{`
+        <style>{`
           @keyframes xpShimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(400%); }
@@ -102,7 +102,7 @@ export default function XPBar({ compact = false }: XPBarProps) {
               key={xp}
               initial={didIncrease ? { scale: 1.3, color: '#c084fc' } : false}
               animate={{ scale: 1, color: '#d1d5db' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              transition={{ type: 'spring' as const, stiffness: 300, damping: 15 }}
             >
               {formatNumber(xp)}
             </motion.span>
@@ -118,7 +118,7 @@ export default function XPBar({ compact = false }: XPBarProps) {
         <motion.div
           className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
           style={{ width: progressWidth }}
-          transition={{ type: 'spring', stiffness: 60, damping: 20 }}
+          transition={{ type: 'spring' as const, stiffness: 60, damping: 20 }}
         >
           {/* Inner glow */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/25 to-transparent" />
@@ -147,7 +147,7 @@ export default function XPBar({ compact = false }: XPBarProps) {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes xpShimmerFull {
           0% { transform: translateX(-200%); }
           100% { transform: translateX(600%); }

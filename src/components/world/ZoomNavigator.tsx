@@ -33,8 +33,8 @@ export default function ZoomNavigator() {
     cityId: selectedCityId,
   };
 
-  // Derive breadcrumb text based on current IDs
-  const breadcrumbs = [{ level: 'world', name: 'World', id: null }];
+  type Breadcrumb = { level: string; name: string; id: string | null };
+  const breadcrumbs: Breadcrumb[] = [{ level: 'world', name: 'World', id: null }];
   
   if (ids.continentId) {
     const cont = getContinent(ids.continentId);
@@ -49,7 +49,6 @@ export default function ZoomNavigator() {
     if (st) breadcrumbs.push({ level: 'state', name: st.name, id: st.id });
   }
 
-  // Animation variants
   const viewVariants = {
     initial: { scale: 0.8, opacity: 0 },
     animate: { scale: 1, opacity: 1 },

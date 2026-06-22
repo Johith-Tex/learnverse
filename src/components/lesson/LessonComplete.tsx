@@ -30,7 +30,7 @@ export default function LessonComplete({
       <motion.div
         initial={{ scale: 0.8, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
-        transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+        transition={{ type: 'spring' as const, damping: 20, stiffness: 300 }}
         className="w-full max-w-lg"
       >
         <GlassCard className="p-10 text-center relative overflow-hidden">
@@ -43,7 +43,7 @@ export default function LessonComplete({
             <motion.div 
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.3, type: 'spring', bounce: 0.6 }}
+              transition={{ delay: 0.3, type: 'spring' as const, bounce: 0.6 }}
               className="w-32 h-32 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(250,204,21,0.5)] mb-8 border-4 border-yellow-200"
             >
               <Trophy className="w-16 h-16 text-yellow-900" />
