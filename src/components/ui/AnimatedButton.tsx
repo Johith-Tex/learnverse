@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
-export interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AnimatedButtonProps extends HTMLMotionProps<"button"> {
   variant?: 'primary' | 'secondary' | 'accent' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
