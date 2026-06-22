@@ -120,7 +120,7 @@ export default function AnimatedButton({
           </motion.div>
         )}
       </AnimatePresence>
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10">{children as React.ReactNode}</span>
 
       {ripples.map((ripple) => (
         <span
