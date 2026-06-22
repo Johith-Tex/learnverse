@@ -8,6 +8,7 @@ export interface AnimatedButtonProps extends HTMLMotionProps<"button"> {
   variant?: 'primary' | 'secondary' | 'accent' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
+  children?: React.ReactNode;
 }
 
 export default function AnimatedButton({
