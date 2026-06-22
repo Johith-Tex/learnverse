@@ -1,12 +1,11 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
-export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GlassCardProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
   glowColor?: string;
-  onClick?: () => void;
 }
 
 export default function GlassCard({
