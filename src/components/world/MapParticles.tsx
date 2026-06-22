@@ -13,11 +13,11 @@ interface Particle {
 }
 
 interface MapParticlesProps {
-  color: string;
-  count: number;
+  color?: string;
+  count?: number;
 }
 
-export default function MapParticles({ color, count }: MapParticlesProps) {
+export default function MapParticles({ color = '#ffffff', count = 30 }: MapParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
